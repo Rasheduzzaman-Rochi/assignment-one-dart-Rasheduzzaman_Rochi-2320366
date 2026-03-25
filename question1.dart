@@ -20,7 +20,8 @@ bool isStudent = true;
 // ignore: prefer_expression_function_bodies
 double calculateBMI(double weight, double height) {
   // TODO: Calculate BMI = weight / (height * height)
-  return weight / (height * height);
+  final heightInMeters = height * 0.305; // Convert height from feet to meters
+  return weight / (heightInMeters * heightInMeters);
 }
 
 // 3. Write a function called getGrade that takes a score (int) and returns a grade (String) based on:
@@ -48,7 +49,7 @@ String getGrade(int score) {
 void main() {
   // TODO: Initialize your variables with appropriate values
 
-  const weight = 156.6; 
+  const weight = 73.0; 
   const score = 85;
 
   // TODO: Calculate BMI and grade
