@@ -35,8 +35,7 @@ class BankAccount {
     if (amount <= balance) {
       balance -= amount;
     } else {
-      // Expected error format: "Insufficient funds for withdrawal of <amount> from account <accountNumber>"
-      print(
+      throw Exception(
           "Insufficient funds for withdrawal of $amount from account $accountNumber");
     }
   }
@@ -89,5 +88,9 @@ void main() {
 
   // TODO: Demonstrate insufficient funds scenario:
   // Withdraw 1000.0 from Account 2
-  acc2.withdraw(1000.0);
+  try {
+    acc2.withdraw(1000.0);
+  } catch (e) {
+    print((e as Exception).toString().substring('Exception: '.length));
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'dart:io';
+
 import '../question3.dart';
 
 void main() {
@@ -29,9 +29,7 @@ void main() {
       var account = BankAccount("12345", "Alice", "Savings");
       account.deposit(50.0);
       
-      // Test that withdraw doesn't change balance when insufficient funds
-      account.withdraw(100.0);
-      expect(account.getBalance(), equals(50.0)); // Balance should remain unchanged
+      expect(() => account.withdraw(100.0), throwsA(isA<Exception>()));
     });
     
     test('main function runs without errors', () {
