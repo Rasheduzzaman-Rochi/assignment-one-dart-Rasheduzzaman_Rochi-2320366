@@ -26,29 +26,33 @@ class BankAccount {
   //    - deposit(double amount): Add money to account
   // TODO: Implement the deposit method
   void deposit(double amount) {
-    // TODO: Add the amount to balance
+    balance += amount;
   }
 
   //    - withdraw(double amount): Remove money from account (check for sufficient funds)
   // TODO: Implement the withdraw method
   void withdraw(double amount) {
-    // TODO: Check for sufficient funds and subtract amount
-    // TODO: Print error message if insufficient funds
-    // Expected error format: "Insufficient funds for withdrawal of <amount> from account <accountNumber>"
+    if (amount <= balance) {
+      balance -= amount;
+    } else {
+      // Expected error format: "Insufficient funds for withdrawal of <amount> from account <accountNumber>"
+      print(
+          "Insufficient funds for withdrawal of $amount from account $accountNumber");
+    }
   }
 
   //    - getBalance(): Return current balance
   // TODO: Implement the getBalance method
   double getBalance() {
-    // TODO: Return the current balance
-    return 0.0;
+    return balance;
   }
 
   //    - displayAccountInfo(): Show account details
   // TODO: Implement the displayAccountInfo method
   void displayAccountInfo() {
-    // TODO: Display account information
     // Expected format: "Account: <number>, Holder: <name>, Type: <type>, Balance: <balance>"
+    print(
+        "Account: $accountNumber, Holder: $accountHolder, Type: $accountType, Balance: $balance");
   }
 }
 
@@ -61,17 +65,29 @@ void main() {
 
   // TODO: Create 3 bank accounts:
   // 1. Account: 12345, Holder: Alice, Type: Savings
+  var acc1 = BankAccount("12345", "Alice", "Savings");
   // 2. Account: 67890, Holder: Bob, Type: Checking
+  var acc2 = BankAccount("67890", "Bob", "Checking");
   // 3. Account: 11111, Holder: Charlie, Type: Savings
+  var acc3 = BankAccount("11111", "Charlie", "Savings");
 
   // TODO: Demonstrate depositing money:
   // Account 1: 1000.0, Account 2: 500.0, Account 3: 2000.0
+  acc1.deposit(1000.0);
+  acc2.deposit(500.0);
+  acc3.deposit(2000.0);
 
   // TODO: Demonstrate withdrawing money:
   // Account 1: 200.0, Account 2: 100.0
+  acc1.withdraw(200.0);
+  acc2.withdraw(100.0);
 
   // TODO: Display account information for all accounts
+  acc1.displayAccountInfo();
+  acc2.displayAccountInfo();
+  acc3.displayAccountInfo();
 
   // TODO: Demonstrate insufficient funds scenario:
   // Withdraw 1000.0 from Account 2
+  acc2.withdraw(1000.0);
 }
