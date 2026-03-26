@@ -1,5 +1,4 @@
 import 'package:test/test.dart';
-import 'dart:io';
 import '../question1.dart';
 
 void main() {
@@ -7,7 +6,7 @@ void main() {
     test('calculateBMI function works correctly', () {
       // The function expects weight in kg and height in feet.
       // Test with values from main function in question1.dart
-      double bmi = calculateBMI(73.0, 5.9);
+      final bmi = calculateBMI(73, 5.9);
       expect(bmi, closeTo(22.5, 0.1));
     });
     
